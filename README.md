@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 [![Static Badge](https://img.shields.io/badge/Telegram-Bot%20Link-Link?style=for-the-badge&logo=Telegram&logoColor=white&logoSize=auto&color=blue)](https://t.me/notpixel/app?startapp=f1197825376)
 
 #  AUTO FARM FOR NotPixel 🚀
-
+![start](https://github.com/user-attachments/assets/3467f0e3-44ac-4a19-8fc0-878bf9ad364a)
 
 # 🔥🔥 PYTHON version must be 3.10 🔥🔥
 
@@ -122,8 +121,3 @@ Here is an example of what `accounts.json` should look like:
 ```
 
 **v0.1 based on rep - vadymfedorets**
-
-=======
-# NotPixelBot
-Python bot for farming Not Pixel telegram bot.
->>>>>>> a3d5a70 (Initial commit)
