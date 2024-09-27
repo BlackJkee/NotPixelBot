@@ -184,7 +184,7 @@ class Tapper:
                                 logger.warning(f"{self.session_name} | League requirements not met.")
                             await asyncio.sleep(delay=randint(10, 20))
                             break
-            for task in settings.TASK_TO_DO:
+            for task in settings.TASKS_TO_DO:
                 if task not in done_task_list:
                     tasks_status = await http_client.get(f'https://notpx.app/api/v1/mining/task/check/{task}')
                     tasks_status.raise_for_status()
@@ -196,7 +196,7 @@ class Tapper:
                         logger.info(f"<blue>{self.session_name}</blue> | Current balance: 💰 <yellow>{balance}</yellow>")
                     else:
                         logger.warning(f"<blue>{self.session_name}</blue> | Task requirements were not met {task}")
-                    await asyncio.sleep(delay=randint(3, 7))
+                    await asyncio.sleep(delay=randint(10, 20))
 
         except Exception as error:
             logger.error(f"<blue>{self.session_name}</blue> | Unknown error when processing tasks: 😢 <red>{error}</red>")
@@ -214,10 +214,13 @@ class Tapper:
 
             for _ in range(charges):
                 x, y = randint(30, 970), randint(30, 970)
+                if randint(0, 10) == 5:
+                    color = random.choice(colors)
+                    logger.info(f"{self.session_name} | Changing color to {color}")
                 paint_request = await http_client.post('https://notpx.app/api/v1/repaint/start',
                                                        json={"pixelId": int(f"{x}{y}")+1, "newColor": color})
                 paint_request.raise_for_status()
-                logger.info(f"<blue>{self.session_name}</blue> | Painted <yellow>{x}</yellow> <yellow>{y}</yellow> with color <light-blue>{color}</light-blue>")
+                logger.success(f"<blue>{self.session_name}</blue> | Painted <yellow>{x}</yellow> <yellow>{y}</yellow> with color <light-blue>{color}</light-blue>")
                 await asyncio.sleep(delay=randint(5, 10))
 
         except Exception as error:
@@ -288,7 +291,7 @@ class Tapper:
                 await self.check_proxy(http_client=http_client, proxy=proxy)
 
             delay = randint(settings.START_DELAY[0], settings.START_DELAY[1])
-            logger.info(f"<blue>{self.session_name}</blue> | Start delay {delay} seconds")
+            logger.info(f"{self.session_name} | Starting in {delay} seconds")
             await asyncio.sleep(delay=delay)
 
             token_live_time = randint(3500, 3600)
