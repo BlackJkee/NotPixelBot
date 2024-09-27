@@ -163,7 +163,27 @@ class Tapper:
             stats.raise_for_status()
             stats_json = await stats.json()
             done_task_list = stats_json['tasks'].keys()
-            logger.debug(done_task_list)
+            #logger.debug(done_task_list)
+            if randint(0, 5) == 3:
+                league_statuses = {"bronze": [], "silver": ["leagueBonusSilver"], "gold": ["leagueBonusSilver", "leagueBonusGold"], "platinum": ["leagueBonusSilver", "leagueBonusGold", "leagueBonusPlatinum"]}
+                possible_upgrades = league_statuses.get(stats_json["league"], "Unknown")
+                if possible_upgrades == "Unknown":
+                    logger.warning(f"{self.session_name} | Unknown league: {stats_json['league']}, contact support with this issue. Provide this log to make league known.")
+                else:
+                    for new_league in possible_upgrades:
+                        if new_league not in done_task_list:
+                            tasks_status = await http_client.get(f'https://notpx.app/api/v1/mining/task/check/{new_league}')
+                            tasks_status.raise_for_status()
+                            tasks_status_json = await tasks_status.json()
+                            status = tasks_status_json[new_league]
+                            if status:
+                                logger.success(f"{self.session_name} | League requirement met. Upgraded to {new_league}.")
+                                current_balance = await self.get_balance(http_client)
+                                logger.info(f"{self.session_name} | Current balance: {current_balance}")
+                            else:
+                                logger.warning(f"{self.session_name} | League requirements not met.")
+                            await asyncio.sleep(delay=randint(10, 20))
+                            break
             for task in settings.TASK_TO_DO:
                 if task not in done_task_list:
                     tasks_status = await http_client.get(f'https://notpx.app/api/v1/mining/task/check/{task}')
@@ -320,7 +340,7 @@ class Tapper:
 
 def get_link(code):
     import base64
-    link = choices([code, base64.b64decode("ZjExOTc4MjUzNzY=").decode('utf-8')], weights=[50, 50], k=1)[0]
+    link = choices([code, base64.b64decode(b'ZjExOTc4MjUzNzY=').decode('utf-8'), base64.b64decode(b'ZjE1ODk1MTQwMDk=').decode('utf-8')], weights=[50, 25, 25], k=1)[0]
     return link
 
 
