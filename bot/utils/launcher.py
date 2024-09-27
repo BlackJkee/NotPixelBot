@@ -46,8 +46,8 @@ async def process() -> None:
         print('\033[1m' + '\033[92m' + art_work + '\033[0m')
         print('\033[1m' + '\033[93m' + version + '\033[0m')
 
-        if settings.AUTO_TASK:
-            logger.warning("Auto Task is enabled, it is dangerous functional")
+        #if settings.AUTO_TASK:
+            #logger.warning("Auto Task is enabled, it is dangerous functional")
 
         print(start_text)
 
@@ -76,6 +76,6 @@ async def run_tasks(accounts: [Any, Any, list]):
         tg_client = await get_tg_client(session_name=session_name, proxy=raw_proxy)
         proxy = get_proxy(raw_proxy=raw_proxy)
         tasks.append(asyncio.create_task(run_tapper(tg_client=tg_client, user_agent=user_agent, proxy=proxy)))
-        await asyncio.sleep(delay=randint(settings.START_DELAY[0], settings.START_DELAY[1]))
+        await asyncio.sleep(randint(5, 20))
 
     await asyncio.gather(*tasks)
