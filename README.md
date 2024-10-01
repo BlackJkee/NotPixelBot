@@ -3,35 +3,51 @@
 #  AUTO FARM FOR NotPixel 🚀
 ![start](https://github.com/user-attachments/assets/3467f0e3-44ac-4a19-8fc0-878bf9ad364a)
 
-# 🔥🔥 PYTHON version must be 3.10 🔥🔥
+# 🔥🔥 Use PYTHON 3.10 🔥🔥
 
 > 🇷 🇺 README in russian available [here](README-RU.md)
 
 ## Features  
-|                      Feature                       | Supported |
-|:--------------------------------------------------:|:---------:|
-|                   Multithreading                   |     ✔️    |
-|              Proxy binding to session              |     ✔️    |
-|         User-Agent binding to session              |     ✔️    |
-| Auto-register your account with your referral link |     ✔️    |
-|                  Daily rewards                     |     ✔️    |
-|                     Auto tasks                     |     ✔️    |
-|           Support for pyrogram .session            |     ✔️    |
+| Feature                               | Supported |
+|---------------------------------------|:---------:|
+| Multithreading                        |     ✔️     |
+| Proxy binding to session              |     ✔️     |
+| User-Agent binding to session         |     ✔️     |
+| Support for tdata / pyrogram .session |     ✔️     |
+| Registration in bot                   |     ✔️     |
+| Auto-paint                            |     ✔️     |
+| Auto-tasks                            |     ✔️     |
+| Auto-claim mining rewards             |     ✔️     |
+| Auto-upgrade boosters                 |     ✔️     |
+| Night sleep mode                      |     ✔️     |
+| Analytics game events                 |     ✔️     |
 
 
 
-## [Settings]
-| Settings                |                                 Description                                 |
-|-------------------------|:---------------------------------------------------------------------------:|
-| **API_ID / API_HASH**   | Platform data from which to run the Telegram session (by default - android) |
-| **SLEEP_TIME**          |           Sleep time between cycles (by default - [2700, 4200])             |
-| **START_DELAY**         |            Delay between sessions at start (by default - [5, 100)           |
-| **AUTO_DRAW**           |                    Auto-drawing pixels (default - True)                     |
-| **AUTO_UPGRADE**        |              Auto-upgrading your mining stuff (default - True)              |
-| **CLAIM_REWARD**        |                     Claim daily reward (default - True)                     |
-| **AUTO_TASK**           |                     Auto tasks (default - True)                             |
-| **TASKS_TO_DO**         |              List of tasks for auto-task (default - all tasks)              |
-| **REF_ID**              |   Your referral argument (comes after app/startapp? in your referral link)  |
+
+## [Settings](https://github.com/Desamod/NotPixelBot/blob/master/.env-example/)
+| Settings                   |                                 Description                                 |
+|----------------------------|:---------------------------------------------------------------------------:|
+| **API_ID / API_HASH**      | Platform data from which to run the Telegram session (by default - android) |
+| **SLEEP_TIME**             |            Sleep time between cycles (by default - [3000, 8000])            |
+| **START_DELAY**            |           Delay between sessions at start (by default - [5, 60])            |
+| **AUTO_PAINT**             |                      Auto painting (by default - True)                      |
+| **AUTO_UPGRADE**           |                  Auto upgrade boosters (by default - True)                  |
+| **AUTO_MINING**            |                Auto claim mining reward (by default - True)                 |
+| **AUTO_TASK**              |                       Auto tasks (by default - True)                        |
+| **AUTO_UPGRADE_PAINT**     |                Auto upgrade paint reward (by default - True)                |
+| **MAX_PAINT_LEVEL**        |                Max level for paint booster (by default - 5)                 |
+| **AUTO_UPGRADE_CHARGE**    |               Auto upgrade recharge speed (by default - True)               |
+| **MAX_CHARGE_LEVEL**       |               Max level for recharge booster (by default - 5)               |
+| **AUTO_UPGRADE_ENERGY**    |                Auto upgrade energy limit (by default - True)                |
+| **MAX_ENERGY_LEVEL**       |                Max level for energy booster (by default - 2)                |
+| **USE_RANDOM_COLOR**       |               Use random color from game (by default - True)                |
+| **OWN_COLOR**              |        Own color if USE_RANDOM_COLOR is False (by default - #FFFFFF)        |
+| **NIGHT_SLEEP**            |                  Extra sleep at night (by default - True)                   |
+| **NIGHT_SLEEP_START_TIME** |          Time (hour) when Night mode starts (by default - [0, 2])           |
+| **NIGHT_SLEEP_END_TIME**   |           Time (hour) when Night mode ends (by default - [5, 7])            |
+| **REF_ID**                 |                          Ref link for registration                          |
+
 
 ## Quick Start 📚
 
@@ -120,4 +136,5 @@ Here is an example of what `accounts.json` should look like:
 ]
 ```
 
-**v0.1 based on rep - vadymfedorets**
+
+
