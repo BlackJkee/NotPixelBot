@@ -1,7 +1,7 @@
 [![Static Badge](https://img.shields.io/badge/Telegram-Bot%20Link-Link?style=for-the-badge&logo=Telegram&logoColor=white&logoSize=auto&color=blue)](https://t.me/notpixel/app?startapp=f1197825376)
 
 #  AUTO FARM FOR NotPixel 🚀
-![start](https://github.com/user-attachments/assets/3467f0e3-44ac-4a19-8fc0-878bf9ad364a)
+![start-notpx](https://github.com/user-attachments/assets/5dbba427-4bd6-4a51-8dd2-458d215523af)
 
 # 🔥🔥 Use PYTHON 3.10 🔥🔥
 
